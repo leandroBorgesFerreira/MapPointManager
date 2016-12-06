@@ -117,7 +117,7 @@ public class MapPointManagerTest {
 		Assert.assertTrue(optionalMap.isPresent());
 		Assert.assertTrue(optionalMap.get().get(1L).equals(car));
 		
-		manager.clearOldPoints(ChronoUnit.MINUTES.getDuration().multipliedBy(5));
+		manager.clearOldPoints(ChronoUnit.MINUTES.getDuration().multipliedBy(10));
 		
 		Optional<Map<Long, Car>> optionalMap2 = 
 				manager.pointsOfCompany(company, ChronoUnit.MINUTES.getDuration().multipliedBy(5));
