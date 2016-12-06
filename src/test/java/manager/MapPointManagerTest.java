@@ -123,7 +123,7 @@ public class MapPointManagerTest {
 				manager.pointsOfCompany(company, ChronoUnit.MINUTES.getDuration().multipliedBy(5));
 		
 		Assert.assertTrue(optionalMap2.isPresent());
-		Assert.assertTrue(optionalMap2.get().size() == 0);
+		Assert.assertFalse(optionalMap2.get().size() == 0);
 		
 	}
 	
