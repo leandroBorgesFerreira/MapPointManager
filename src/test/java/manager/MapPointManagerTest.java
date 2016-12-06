@@ -3,7 +3,7 @@ package manager;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.time.Duration;
-import java.time.LocalTime;
+import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.Map;
 import java.util.Optional;
@@ -36,13 +36,13 @@ public class MapPointManagerTest {
 	
 	@Test
 	public void isNewEnougthTest(){
-		Car car = new Car(1L, -19.35, -41.0, LocalTime.now());
+		Car car = new Car(1L, -19.35, -41.0, LocalDateTime.now());
 		
 		MapPointManager<Car> manager = new MapPointManager<>();
 					
 		Method method;
 		try {
-			method = manager.getClass().getDeclaredMethod("isNewEnougth", LocalTime.class, Duration.class);
+			method = manager.getClass().getDeclaredMethod("isNewEnougth", LocalDateTime.class, Duration.class);
 			method.setAccessible(true);
 			try {
 				Assert.assertTrue((boolean) method.invoke(manager, car.getLastUpdate(), ChronoUnit.FOREVER.getDuration()));
@@ -71,7 +71,7 @@ public class MapPointManagerTest {
 	public void companyCreateTest(){
 		String company = "Simple Pass";
 		
-		Car car = new Car(1L, -19.35, -41.0, LocalTime.now());
+		Car car = new Car(1L, -19.35, -41.0, LocalDateTime.now());
 		
 		MapPointManager<Car> manager = new MapPointManager<>();
 		
@@ -89,7 +89,7 @@ public class MapPointManagerTest {
 	public void insertMapPointTest(){
 		String company = "Simple Pass";
 		
-		Car car = new Car(1L, -19.35, -41.0, LocalTime.now());
+		Car car = new Car(1L, -19.35, -41.0, LocalDateTime.now());
 		MapPointManager<Car> mManager = new MapPointManager<>();	
 		
 		mManager.insertPoint(company, car);
@@ -109,7 +109,7 @@ public class MapPointManagerTest {
 		String company = "Simple Pass";
 		
 		//Insert point. Last update in 2 hours
-		Car car = new Car(1L, -19.35, -41.0, LocalTime.now().minusHours(2));
+		Car car = new Car(1L, -19.35, -41.0, LocalDateTime.now().minusHours(2));
 		
 		manager.insertPoint(company, car);
 		

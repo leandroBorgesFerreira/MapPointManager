@@ -1,12 +1,12 @@
 package br.com.simplepass.interfaces;
 
-import java.time.LocalTime;
+import java.time.LocalDateTime;
 
 public interface MapPoint {
 	
 	public long getId() ;	
 	public double getLatitude();	
 	public double getLongitude();
-	public LocalTime getLastUpdate();
+	public LocalDateTime getLastUpdate();
 	
 }

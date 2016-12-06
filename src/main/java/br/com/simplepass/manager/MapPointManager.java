@@ -1,7 +1,7 @@
 package br.com.simplepass.manager;
 
 import java.time.Duration;
-import java.time.LocalTime;
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
@@ -78,8 +78,8 @@ public class MapPointManager<T extends MapPoint> implements IMapPointManager<T>{
 		
 	}
 	
-	private boolean isNewEnougth(LocalTime localTime, Duration duration){
-		Duration oldDuration = Duration.between(localTime, LocalTime.now());
+	private boolean isNewEnougth(LocalDateTime localDateTime, Duration duration){
+		Duration oldDuration = Duration.between(localDateTime, LocalDateTime.now());
 		return oldDuration.compareTo(duration) < 0;
 	}
 	

@@ -1,6 +1,6 @@
 package domain;
 
-import java.time.LocalTime;
+import java.time.LocalDateTime;
 
 import br.com.simplepass.interfaces.MapPoint;
 
@@ -8,11 +8,11 @@ public class Car implements MapPoint{
 	long id;
 	double latitude;
 	double longitude;
-	LocalTime lastUpdate;
+	LocalDateTime lastUpdate;
 	
 	
 	
-	public Car(long id, double latitude, double longitude, LocalTime lastUpdate) {
+	public Car(long id, double latitude, double longitude, LocalDateTime lastUpdate) {
 		super();
 		this.id = id;
 		this.latitude = latitude;
@@ -37,10 +37,10 @@ public class Car implements MapPoint{
 	public void setLongitude(double longitude) {
 		this.longitude = longitude;
 	}
-	public LocalTime getLastUpdate() {
+	public LocalDateTime getLastUpdate() {
 		return lastUpdate;
 	}
-	public void setLastUpdate(LocalTime lastUpdate) {
+	public void setLastUpdate(LocalDateTime lastUpdate) {
 		this.lastUpdate = lastUpdate;
 	}
 	@Override
