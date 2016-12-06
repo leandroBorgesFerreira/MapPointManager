@@ -107,18 +107,23 @@ public class MapPointManagerTest {
 		MapPointManager<Car> manager = new MapPointManager<>();
 		
 		String company = "Simple Pass";
+		
+		//Insert point. Last update in 2 hours
 		Car car = new Car(1L, -19.35, -41.0, LocalTime.now().minusHours(2));
 		
 		manager.insertPoint(company, car);
 		
+		//Query points. Younger than forever
 		Optional<Map<Long, Car>> optionalMap = 
 				manager.pointsOfCompany(company, ChronoUnit.FOREVER.getDuration());
 		
 		Assert.assertTrue(optionalMap.isPresent());
 		Assert.assertTrue(optionalMap.get().get(1L).equals(car));
 		
-		manager.clearOldPoints(ChronoUnit.MINUTES.getDuration().multipliedBy(10));
+		//Remove point older than 5 minutes
+		manager.clearOldPoints(ChronoUnit.MINUTES.getDuration().multipliedBy(5));
 		
+		//Query points. Younger than 5 minutes
 		Optional<Map<Long, Car>> optionalMap2 = 
 				manager.pointsOfCompany(company, ChronoUnit.MINUTES.getDuration().multipliedBy(5));
 		
