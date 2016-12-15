@@ -2,6 +2,8 @@ language: java
 jdk: oraclejdk8
 sudo: false
 script: mvn clean test
+after_success:
+  - mvn coveralls:report
 env:
   global:
   - secure: Id3vMSTI1/mAu/fhamwkF4VWxB68YCfsku+UhAyRdY/bor2SasF+U6YlyLXlX5hdocKlxHeC0hMNGYeM1Tc73vnZ7yKNHKgD0q7buxEYlHoiTpwpDSwJeTKWK/yrS9zwRqIJfQP9+rEj5v3mOO/5IyZYvsExqhTbMlUO1tWwy2RoxBBC7B7shsXcke/jlMmQZ0UgtsZGEl0U4YXG+cPAParmpNSZJ0ejz9rx4T/UNvTF+9+FcFLPi83teNUvYM+l+VFa7TDtbey14bXA1BFimJfH/QBxj2WF0Fx7u6w1e957EGyKz+XGlhFs/dBq/RTHqrrCdbPNmoRI7fu9mfnPe7KwB+P0fXrLsSpMMbLjtZURvRbrSTZJg1i5w+sFUQXoSFpAmIWLfjN2BzxoGLbHouXREAEC/qse9MUhTexHkH3cgteXYl4UdTWfPNGRzE4/e/sKQZLSNm1huI/5OZvXDWNno58XYpO66qHYxkyqX2BryM9+yPQ0/GglG0kFw6Kt/sgYcAbV1M/O2YyO6FiXFCMy4/NhNosYP6zXidLrGDi7Cg6Mspw0mllhZWUycXH9TI7EbcB6blUWcFV2lKksj511PXyAT5bB+xq9l3Rz/FTBkD5VOPKxdtC+ml3lQh91jWxC5RV+UvBvMziSSEZFx1VVu7Id0unHNrWsvOs5nv4=
