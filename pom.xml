@@ -10,6 +10,16 @@
   <name>mapPointManager</name>
   <url>http://maven.apache.org</url>
 
+  <build>   
+    <plugins>
+      <plugin>
+	    <groupId>org.eluder.coveralls</groupId>
+	    <artifactId>coveralls-maven-plugin</artifactId>
+	    <version>4.3.0</version>
+	  </plugin>      	
+    </plugins>
+  </build>
+
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.8</maven.compiler.source>
@@ -31,4 +41,11 @@
 	  <scope>test</scope>
 	</dependency>
   </dependencies>
+  
+  <distributionManagement>
+        <repository>
+            <id>MapPointManager</id>
+            <url>https://api.bintray.com/maven/lehen01/maven/MapPointManager/;publish=1</url>
+        </repository>
+    </distributionManagement>
 </project>
