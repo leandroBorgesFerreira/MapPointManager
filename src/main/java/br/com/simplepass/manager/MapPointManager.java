@@ -31,7 +31,7 @@ public class MapPointManager<T extends MapPoint> implements IMapPointManager<T>{
 				.get()
 				.entrySet()
 				.stream()
-				.peek(System.out::println)
+				//.peek(System.out::println)
 				.filter(e -> isNewEnougth(e.getValue().getLastUpdate(), duration))
 				.collect(Collectors.toMap(e -> e.getKey(), e -> e.getValue()));
 			

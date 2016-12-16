@@ -16,22 +16,38 @@ import br.com.simplepass.manager.MapPointManager;
 import domain.Car;
 
 public class MapPointManagerTest {	
+	String mCompany;
+	
 	@Before
 	public void setup(){
+		mCompany = "Simple Pass";
 	}
 	
 	@Test
 	public void nullTest(){
-		String company = "Simple Pass";
 		
 		MapPointManager<Car> manager = new MapPointManager<>();
 		
 		Optional<Car> carOptional = manager.pointsOfCompanyById(
-				company, 
+				mCompany, 
 				1L, 
 				ChronoUnit.FOREVER.getDuration());
 
 		Assert.assertFalse(carOptional.isPresent());
+	}
+	
+	@Test
+	public void getPointOfCompanyByIdTest(){
+		long id = 55L;
+		Car car = new Car(id, -19.35, -41.0, LocalDateTime.now());
+		
+		MapPointManager<Car> manager = new MapPointManager<>();
+		
+		manager.insertPoint(mCompany, car);
+		
+		Car carFromManager = manager.pointsOfCompanyById(mCompany, id, ChronoUnit.FOREVER.getDuration()).get();
+		
+		Assert.assertEquals(car, carFromManager);
 	}
 	
 	@Test
